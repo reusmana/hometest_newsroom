@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  .text-linear {
+    @apply bg-gradient-to-tr from-[#6136E3] from-0% to-[#4E36E2] to-100% text-transparent bg-clip-text;
+  }
+  .bg-linear {
+    @apply bg-gradient-to-tr from-[#6136E3] from-0% to-[#4E36E2] to-100%;
+  }
+  .paginate {
+    @apply h-8 w-8 min-w-8 flex justify-center items-center text-slate-3 border border-[#F1F1F1] rounded-md;
+  }
+  .paginate.active {
+    @apply h-8 w-8 min-w-8 flex justify-center items-center text-white-1 rounded-md bg-gradient-to-tr from-[#4E36E2] from-0% to-[#6136E3] to-100%;
+  }
+  .paginate-three-dot {
+    @apply h-8 w-8 min-w-8 flex items-end justify-center;
+  }
+}
