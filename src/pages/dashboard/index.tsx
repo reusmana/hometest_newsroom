@@ -56,7 +56,9 @@ const Index = () => {
               <td className="text-center px-2 border-r border-grey-2">
                 <div className="flex flex-wrap items-center gap-2">
                   {["items", "healty", "programming"].map((item) => (
-                    <Tag className="bg-linear">{item}</Tag>
+                    <Tag key={item} className="bg-linear">
+                      {item}
+                    </Tag>
                   ))}
                 </div>
               </td>
