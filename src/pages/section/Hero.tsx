@@ -6,6 +6,18 @@ import Button from "@/components/Button";
 
 const Hero = () => {
   const searchInput = useRef<HTMLInputElement>(null);
+  const [isLoading, setIsLoading] = React.useState<boolean>(false);
+  const [tags, setTags] = React.useState<[]>([]);
+
+  useEffect(() => {
+    const _tags = async () => {
+      const data = await fetch("/api/tags");
+      const json = await data.json();
+      setTags(json.data);
+    };
+
+    _tags();
+  }, []);
 
   return (
     <div className="py-10 max-w-[1440px] mx-auto">
@@ -17,10 +29,12 @@ const Hero = () => {
           <hr className="w-full border-t-4 border-slate-4" />
           <div className="flex items-center py-2 justify-between px-2">
             <ul className="flex items-center divide-x gap-x-2 divide-slate-4">
-              <li className="pl-2 text-slate-4 ">
-                <span className="text-base cursor-pointer">Tips</span>
-              </li>
-              <li className="pl-2 text-slate-4 ">
+              {tags?.map((tag: any, index: number) => (
+                <li key={index} className="pl-2 text-slate-4 ">
+                  <span className="text-base cursor-pointer">{tag}</span>
+                </li>
+              ))}
+              {/* <li className="pl-2 text-slate-4 ">
                 <span className="text-base cursor-pointer">Bisnis</span>
               </li>
               <li className="pl-2 text-slate-4 ">
@@ -42,7 +56,7 @@ const Hero = () => {
               </li>
               <li className="pl-2 text-slate-4 ">
                 <span className="text-base cursor-pointer">Gaya Hidup</span>
-              </li>
+              </li> */}
             </ul>
             <div className="flex">
               <input

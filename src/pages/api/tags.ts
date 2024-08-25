@@ -17,29 +17,36 @@ type ResponseData = {
     | undefined;
 };
 
+type TagsResponse = {
+  tag: string[];
+};
+
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<ResponseData>
 ) {
   const trending = await prisma.pembaca.findMany({
     select: {
-      id: true,
-      judul: true,
-      gambar: true,
-      deskripsi: true,
       tag: true,
-      number_reader: true,
-      trending: true,
     },
-    take: 5,
     orderBy: {
-      number_reader: "desc",
+      createdAt: "desc",
     },
+  });
+
+  const tags_: any = [];
+
+  trending.forEach((item) => {
+    item.tag.forEach((tag) => {
+      if (!tags_.includes(tag)) {
+        tags_.push(tag);
+      }
+    });
   });
 
   return res.status(200).json({
     message: "",
     error: "",
-    data: trending,
+    data: tags_,
   });
 }

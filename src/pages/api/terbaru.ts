@@ -31,9 +31,9 @@ export default async function handler(
       number_reader: true,
       trending: true,
     },
-    take: 5,
+    take: 8,
     orderBy: {
-      number_reader: "desc",
+      createdAt: "desc",
     },
   });
 
