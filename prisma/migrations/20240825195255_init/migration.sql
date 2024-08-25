@@ -1,0 +1,10 @@
+-- CreateTable
+CREATE TABLE "crud" (
+    "id" SERIAL NOT NULL,
+    "name" TEXT NOT NULL,
+    "job" TEXT NOT NULL,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT "crud_pkey" PRIMARY KEY ("id")
+);

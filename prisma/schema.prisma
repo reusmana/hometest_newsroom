@@ -26,3 +26,43 @@ model Pembaca {
   @@map("pembaca")
 }
 
+model User {
+  id         Int      @id @default(autoincrement())
+  email      String
+  first_name String
+  last_name  String
+  avatar     String
+  createdAt DateTime @default(now())
+
+  @@map("users")
+}
+
+model Auth {
+  id         Int      @id @default(autoincrement())
+  email   String
+  password   String
+  createdAt  DateTime @default(now())
+
+  @@map("auth")
+}
+
+model Color {
+  id              Int      @id @default(autoincrement())
+  name            String
+  year            Int
+  color           String
+  pantone_value   String
+  createdAt       DateTime @default(now())
+
+  @@map("colors")
+}
+model Crud {
+  id              Int      @id @default(autoincrement())
+  name            String
+  job             String
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @default(now())
+
+  @@map("crud")
+}
+

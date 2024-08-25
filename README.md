@@ -8,6 +8,7 @@ First :
 npm install
 npx prisma generate
 npx prisma migrate dev --name init
+npx prisma db push
 npm run seed
 npm run dev
 ```
