@@ -21,6 +21,7 @@ model Pembaca {
   tag        String[]
   number_reader Int
   trending   Boolean  @default(false)
+  createdAt DateTime @default(now())
 
   @@map("pembaca")
 }

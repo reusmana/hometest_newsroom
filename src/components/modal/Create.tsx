@@ -64,14 +64,14 @@ const Create = ({ close }: { close: () => void }) => {
       return;
     }
 
-    console.log("berhasil");
+    close();
   };
 
   return (
     <div className="fixed z-10 bg-black/30 flex justify-center items-center inset-0">
       <form
         onSubmit={handleSubmit}
-        className="max-w-[350px] w-full py-10 bg-white-1 rounded-lg px-2 flex flex-col gap-3"
+        className="max-w-[350px] w-full py-10 bg-white-1 rounded-lg px-10 flex flex-col gap-3"
       >
         <Input
           label="Judul"
@@ -83,7 +83,7 @@ const Create = ({ close }: { close: () => void }) => {
           <p className="text-xs text-red-500 -mt-2">{errors?.error?.judul}</p>
         </div>
         <label htmlFor="tags" className="flex flex-col gap-2">
-          <span>Tag</span>
+          <span>Deskripsi</span>
           <textarea
             name="deskripsi"
             id=""

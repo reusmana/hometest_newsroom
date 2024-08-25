@@ -29,7 +29,7 @@ export const TagField = ({ tags, addTag, removeTag, maxTags }: iTag) => {
         userInput.length <= 12 &&
         tags.length < maxTags
       ) {
-        addTag(userInput);
+        addTag(userInput.trim());
         setUserInput(""); // Clear the input after adding a tag
       }
     }

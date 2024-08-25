@@ -7,6 +7,7 @@ CREATE TABLE "pembaca" (
     "tag" TEXT[],
     "number_reader" INTEGER NOT NULL,
     "trending" BOOLEAN NOT NULL DEFAULT false,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     CONSTRAINT "pembaca_pkey" PRIMARY KEY ("id")
 );
